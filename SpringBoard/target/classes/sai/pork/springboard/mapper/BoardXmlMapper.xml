@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sai.pork.springboard.mapper.BoardXmlMapper">
+	<select id="getBoards" resultType="sai.pork.springboard.dto.Board">
+		SELECT * FROM boards ORDER BY board_id DESC
+	</select>
+	<select id="getBoard" resultType="sai.pork.springboard.dto.Board">
+		SELECT * FROM boards WHERE board_id = #{board_id}
+	</select>
+	<update id="updateView">
+		UPDATE boards SET write_view=boards.write_view + 1 WHERE board_id=#{board_id}
+	</update>
+	<insert id="writeBoard">
+		INSERT INTO boards VALUES(board_id_seq.nextval, #{writer}, #{write_pw}, #{write_type},
+									#{write_title}, #{write_content},
+									TO_CHAR(sysdate, 'yyyy-MM-dd HH24:MI:ss'), 0, 0, 0)
+	</insert>
+	<update id="modifyBoard">
+		UPDATE boards SET writer=#{writer}, write_pw=#{write_pw}, write_type=#{write_type},
+						  write_title=#{write_title}, write_content=#{write_content}, 
+						  write_date=TO_CHAR(sysdate, 'yyyy-MM-dd HH24:MI:ss') WHERE board_id=#{board_id}
+	</update>
+	<delete id="deleteBoard">
+		DELETE FROM boards WHERE board_id=#{board_id}
+	</delete>
+	<update id="recommendBoard">
+		UPDATE boards SET write_recommand=boards.write_recommand+1 WHERE board_id=#{board_id}
+	</update>
+	<update id="notRecommendBoard">
+		UPDATE boards SET write_not_recommand=boards.write_not_recommand+1 WHERE board_id=#{board_id}
+	</update>
+</mapper>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sai.pork.springboard.mapper.CommentXmlMapper">
+	<select id="getComments" resultType="sai.pork.springboard.dto.Comment">
+		SELECT * FROM comments WHERE board_id=#{board_id}
+	</select>
+	<select id="getComment" resultType="sai.pork.springboard.dto.Comment">
+		SELECT * FROM comments WHERE comment_id=#{comment_id}
+	</select>
+	<insert id="writeComment">
+		INSERT INTO comments VALUES(comment_id_seq.nextval,
+			#{board_id}, #{comment_writer}, #{comment_pw}, #{comment_content}, TO_CHAR(sysdate, 'yyyy-MM-dd HH24:MI:ss'))
+	</insert>
+	<update id="modifyComment">
+		UPDATE comments SET comment_writer=#{comment_writer}, comment_pw=#{comment_pw},
+					     comment_content=#{comment_content} WHERE comment_id=#{comment_id}
+	</update>
+	<delete id="deleteComment">
+		DELETE FROM comments WHERE comment_id=#{comment_id}
+	</delete>
+	<delete id="deleteComments">
+		DELETE FROM comments WHERE board_id=#{board_id}
+	</delete>
+</mapper>
