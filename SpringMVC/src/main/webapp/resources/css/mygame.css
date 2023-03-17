@@ -1,0 +1,39 @@
+* {
+	box-sizing: border-box;
+}
+.lbl {
+	display: inline-block;
+	text-align: center;
+	width: 150px;
+}
+#me_lbl {
+	margin-left: 2.2rem;
+}
+
+.box {
+	display: inline-block;
+	position: static;
+	width: 20px;
+	height: 150px;
+	margin: 2px;
+}
+
+#vs {
+	text-align: center;
+	vertical-align: 330%;
+	height: 30px;
+}
+
+.box.img {
+	border: solid black 3px;
+	background-color: white;
+	background-size: cover;
+	background-position: -30%;
+	width: 150px;
+}
+
+
+#message {
+	height: 40px;
+	padding: 5px;
+}

@@ -1,0 +1,47 @@
+06_Lombok.txt
+
+ # Lombok
+ 
+ 	- 간단한 어노테이션 추가로 Java Bean 스타일의 객체를 자동 완성해주는 라이브러리
+ 
+ # Lombok 설치
+ 
+ 	1. 구글에 검색
+ 	2. 다운로드
+ 	3. 실행 후 원하는 IDE(통합 개발 환경)의 위치를 선택
+ 	4. 설치 버튼 누르기
+ 	5. pom.xml에 의존성 등록
+ 	6. 롬복 최초 설치 후 IDE를 한번 재부팅
+ 	
+ # Lombok의 어노테이션들
+ 
+  @Getter
+   - 모든 필드에 대해 Getter를 생성해주는 어노테이션
+   - 특정 필드에만 Getter를 생성하는 것도 가능하다.
+   
+  @Setter
+   - 클래스 위에 사용하면 모든 필드에 대해 Setter를 생성해주는 어노테이션
+   - 특정 필드에만 Setter를 생성하는 것도 가능하다.
+ 
+  @ToString
+   - 해당 클래스의 toString()을 대충 구현
+   
+  @NoArgsConstructor
+   - 기본 생성자(args가 없는)를 자동으로 생성
+   
+  @RequiredArgsConstructor
+   - 필수로 채워야 하는(@NotNull) 필드가 포함된 생성자를 자동으로 생성
+   
+  @AllArgsConstructor
+   - 모든 필드를 포함한 생성자를 자동으로 생성
+   
+  @EqualsAndHashCode
+   - 해당 클래스의 equals()와 hashCode()를 적당히 생성
+ 
+  @Data
+   - @Getter
+   - @Setter
+   - @ToString
+   - @EqualsAndHashCode
+   - @RequiredArgsConstructor
+   를 합친 어노테이션

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	# File Appender 추가해보기
+
+	<!-- Appenders -->
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p: %c - %m%n" />
+		</layout>
+	</appender>
+	
+	# 다른 레이아웃 사용해보기 (HTML 레이아웃)
+	
+	<!-- File Appender2 (html layout) -->
+	<appender name="logfile_html" class="org.apache.log4j.FileAppender">
+		<param name="file" value="/log/logfile_html.html" />
+		<layout class="org.apache.log4j.HTMLLayout"/>
+	</appender>
+	
+	<!-- File Appender 선언 -->
+	<appender name="logfile" class="org.apache.log4j.FileAppender">
+		<param name="file" value="/log/logfile.txt" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p: %c - %m%n" />
+		</layout>
+	</appender>
+	
+	<!-- Application Loggers -->
+	<logger name="com.ezen.springmvc">
+		<level value="debug" />
+	</logger>
+	
+	<!-- 3rdparty Loggers -->
+	<logger name="org.springframework.core">
+		<level value="info" />
+	</logger>
+	
+	<logger name="org.springframework.beans">
+		<level value="info" />
+	</logger>
+	
+	<logger name="org.springframework.context">
+		<level value="info" />
+	</logger>
+
+	<logger name="org.springframework.web">
+		<level value="info" />
+	</logger>
+
+	<!-- Root Logger -->
+	<root>
+		<priority value="warn" />
+		<appender-ref ref="console" />
+		<appender-ref ref="logfile" />
+		<appender-ref ref="logfile_html" />
+	</root>
+	
+	
+</log4j:configuration>

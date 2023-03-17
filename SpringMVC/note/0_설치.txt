@@ -1,0 +1,12 @@
+
+1. JDK 11버전으로 설치
+
+2. sts 다운로드
+
+3. sts.ini의 내용에 -vm으로 JDK의 위치 설정 (javaw.exe 파일의 경로)
+
+4. sts 실행 후 File - New - Spring Legacy Project - Spring MVC Project
+
+5. com.company.appname으로 패키지 이름 결정
+
+6. Servers에 Tomcat9.0 등록
